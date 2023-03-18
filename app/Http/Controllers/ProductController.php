@@ -19,7 +19,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::orderby('created_at', 'DESC')->with('variant', 'variantPrice')->paginate(2);
+        $products = Product::orderby('created_at', 'DESC')->with('variant', 'variantPrice')->paginate(10);
         $variants = Variant::with('productVariant')->get();
         // dd($products);
         return view('products.index', compact('products', 'variants'));

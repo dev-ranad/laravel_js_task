@@ -106,9 +106,7 @@
                     </p>
                 </div>
                 <div class="col-md-2">
-                    @if (count($products) < $products->perPage())
-                        {{ $products->links() }}
-                    @endif
+                    {{ $products->links() }}
                 </div>
             </div>
         </div>
