@@ -21,11 +21,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/dropzone', 'HomeController@index')->name('file-upload');
+Route::post('/dropzone/{id?}', 'HomeController@dropzone')->name('dropzone');
 
 Route::middleware('auth')->group(function () {
     Route::resource('product-variant', 'VariantController');
     Route::resource('product', 'ProductController');
     Route::resource('blog', 'BlogController');
     Route::resource('blog-category', 'BlogCategoryController');
+
+    Route::post('/search/product', 'ProductController@search_product')->name('search.product');
 });

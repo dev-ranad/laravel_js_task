@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Variant extends Model
 {
@@ -10,4 +11,9 @@ class Variant extends Model
         'title', 'description'
     ];
 
+
+    public function productVariant(): HasMany
+    {
+        return $this->hasMany(ProductVariant::class);
+    }
 }
